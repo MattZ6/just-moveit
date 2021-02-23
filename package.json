@@ -1,0 +1,30 @@
+{
+  "name": "moveit",
+  "description": "",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "email": "matt_z6@hotmail.com",
+    "name": "Matheus Felipe Zanin",
+    "url": "https://github.com/mattz6"
+  },
+  "repository": "https://github.com/mattz6/moveit",
+  "bugs": "https://github.com/mattz6/moveit/issues",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "10.0.7",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "typescript": "^4.1.5"
+  }
+}
