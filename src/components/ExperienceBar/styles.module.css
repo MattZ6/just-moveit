@@ -20,10 +20,12 @@
   height: inherit;
   border-radius: inherit;
   background: var(--green);
+  transition: all 500ms ease-out;
 }
 
 .experienceBar > div > span.currentExperience {
   position: absolute;
   top: 12px;
   transform: translateX(-50%);
+  transition: all 500ms ease-out;
 }

@@ -9,7 +9,7 @@ export function ExperienceBar() {
 
   const percentToNextLevel = useMemo(() => {
     return Math.round(currentExperience * 100) / experienceToNextLevel;
-  }, []);
+  }, [currentExperience, experienceToNextLevel]);
 
   return (
     <header className={styles.experienceBar}>
