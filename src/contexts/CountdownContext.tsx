@@ -13,7 +13,7 @@ interface ICountdownContextData {
   resetCountdown: () => void;
 }
 
-const DEFAULT_TIME = 0.1 * 60;
+const DEFAULT_TIME = 0.05 * 60;
 
 export const CountdownContext = createContext({} as ICountdownContextData);
 
