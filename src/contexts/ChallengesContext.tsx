@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useCallback, useMemo } from 'react';
+import Cookies from 'js-cookie';
 
 import challenges from '../../challenges.json';
 
@@ -21,16 +22,33 @@ interface IChallengesContextData {
 
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
-export const ChallengesProvider: React.FC = ({ children }) => {
-  const [level, setLevel] = useState(0);
-  const [currentExperience, setCurrentExperience] = useState(0);
-  const [completedChallenges, setCompletedChallenges] = useState(0);
+
+interface IChallengesProviderProps {
+  level: number;
+  currentExperience: number;
+  completedChallenges: number;
+}
+
+export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
+  children,
+  ...rest
+}) => {
+  const [level, setLevel] = useState(rest?.level ?? 0);
+  const [currentExperience, setCurrentExperience] = useState(rest?.currentExperience ?? 0);
+  const [completedChallenges, setCompletedChallenges] = useState(rest?.completedChallenges ?? 0);
 
   const [activeChallenge, setActiveChallenge] = useState<IChallenge>(null);
 
   useEffect(() => {
     Notification.requestPermission();
   }, []);
+
+  useEffect(() => {
+    Cookies.set('moveit_level', String(level));
+    Cookies.set('moveit_currentExperience', String(currentExperience));
+    Cookies.set('moveit_completedChallenges', String(completedChallenges));
+
+  }, [level, currentExperience, completedChallenges]);
 
   function getExperienceToNextLevel(level: number) {
     return Math.pow((level + 1) * 4, 2);
