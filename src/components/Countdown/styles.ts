@@ -27,7 +27,7 @@ export const Container = styled.div`
     > span {
       flex: 1;
 
-      &:last-child {
+      &:first-child {
         border-right: 1px solid ${({ theme }) => theme.dividerColor};
       }
 
