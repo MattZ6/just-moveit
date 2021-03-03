@@ -3,80 +3,72 @@ import { useCallback, useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
-import styles from './styles.module.css';
+import { Container, ActiveChallengeContainer, InactiveChallengeContainer, ActionButton } from './styles';
 
-export function ChallengeBox () {
+export function ChallengeBox() {
   const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
   const { resetCountdown } = useContext(CountdownContext);
 
-  function handleChallengeFailed() {
+  const handleChallengeFailed = useCallback(() => {
     resetChallenge();
     resetCountdown();
-  }
+  }, [resetChallenge, resetCountdown]);
 
-  function handleChallengeSucceeded() {
+  const handleChallengeSucceeded = useCallback(() => {
     completeChallenge();
     resetCountdown();
-  }
-
-  // const handleChallengeFailed = useCallback(() => {
-  //   resetChallenge();
-  //   resetCountdown();
-  // }, [resetChallenge, resetCountdown]);
-
-  // const handleChallengeSucceeded = useCallback(() => {
-  //   completeChallenge();
-  //   resetCountdown();
-  // }, [resetCountdown, completeChallenge]);
+  }, [resetCountdown, completeChallenge]);
 
   return (
-    <div className={styles.challengeBoxContainer}>
-     {
-       activeChallenge ? (
-        <div className={styles.challengeActive}>
-          <header>Ganhe {activeChallenge.amount}xp</header>
+    <Container>
+      {
+        activeChallenge ? (
+          <ActiveChallengeContainer>
+            <header>Ganhe {activeChallenge.amount}xp</header>
 
-          <main>
-            {
-              activeChallenge.type == 'body' ? (
-                <img src="icons/body.svg" alt="Desafio de movimento"/>
-              ) : activeChallenge.type == 'eye' && (
-                <img src="icons/eye.svg" alt="Desafio de visão"/>
-              )
-            }
-            <strong>Novo desafio</strong>
-            <p>{ activeChallenge.description }</p>
-          </main>
+            <main>
+              <header>
+                {
+                  activeChallenge.type === 'body' ? (
+                    <img src="icons/body.svg" alt="Desafio de movimento" />
+                  ) : activeChallenge.type === 'eye' && (
+                    <img src="icons/eye.svg" alt="Desafio de visão" />
+                  )
+                }
+              </header>
+              <strong>Novo desafio</strong>
+              <p>{activeChallenge.description}</p>
+            </main>
 
-          <footer>
-            <button
-              type="button"
-              className={styles.challengeFailureButton}
-              onClick={handleChallengeFailed}
+            <footer>
+              <ActionButton
+                type="button"
+                actionType="warn"
+                onClick={handleChallengeFailed}
               >
-              Falhei
-            </button>
-            <button
-              type="button"
-              className={styles.challengeSuccessButton}
-              onClick={handleChallengeSucceeded}
-            >
-              Completei
-            </button>
-          </footer>
-        </div>
-       ) : (
-        <div className={styles.challengeNotActive}>
-          <strong>
-            Finalize um ciclo para receber desafios
+                Falhei
+            </ActionButton>
+              <ActionButton
+                type="button"
+                actionType="success"
+                onClick={handleChallengeSucceeded}
+              >
+                Completei
+            </ActionButton>
+            </footer>
+          </ActiveChallengeContainer>
+        ) : (
+            <InactiveChallengeContainer>
+              <strong>
+                Finalize um ciclo para receber desafios
           </strong>
-          <p>
-            <img src="icons/level-up.svg" alt="Level Up"/>
+              <p>
+                <img src="icons/level-up.svg" alt="Level Up" />
             Avance de level completando desafios
           </p>
-        </div>
-       )
-     }
-    </div>
+            </InactiveChallengeContainer>
+          )
+      }
+    </Container>
   );
 }

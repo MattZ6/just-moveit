@@ -2,7 +2,7 @@ import { useContext, useMemo } from 'react';
 
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
-import styles from './styles.module.css';
+import { Container, Progress, CurrentProgress, CurrentProgressIndicator } from './styles';
 
 export function ExperienceBar() {
   const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
@@ -12,18 +12,18 @@ export function ExperienceBar() {
   }, [currentExperience, experienceToNextLevel]);
 
   return (
-    <header className={styles.experienceBar}>
+    <Container>
       <span>0xp</span>
-      <div>
-        <div style={{ width: `${percentToNextLevel}%` }}></div>
-        <span
-          className={styles.currentExperience}
-          style={{ left: `${percentToNextLevel}%` }}
-        >
+
+      <Progress>
+        <CurrentProgress progress={percentToNextLevel} />
+
+        <CurrentProgressIndicator progress={percentToNextLevel}>
           {currentExperience}xp
-        </span>
-      </div>
+        </CurrentProgressIndicator>
+      </Progress>
+
       <span>{experienceToNextLevel}xp</span>
-    </header>
+    </Container>
   );
 }

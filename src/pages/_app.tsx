@@ -1,7 +1,17 @@
-import '../styles/global.css'
+import { ThemeProvider } from '../contexts/ThemeContext';
 
-function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+interface IProps {
+  Component: any;
+  pageProps: any;
+  isDarkTheme: boolean;
+}
+
+function App({ Component, pageProps }: IProps) {
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
 export default App;

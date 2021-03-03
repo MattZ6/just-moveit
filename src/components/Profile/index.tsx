@@ -1,23 +1,38 @@
-import { useContext } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
-import styles from './styles.module.css';
+import { Container, ImageContainer, ProfileImage, ProfileData } from './styles';
 
 export function Profile () {
+  const [showImage, setShowImage] = useState(false);
+
   const { level } = useContext(ChallengesContext);
 
-  return (
-    <div className={styles.profileContainer}>
-      <img src="https://github.com/mattz6.png" alt="Matheus Felipe Zanin" />
+  const handleImageLoaded = useCallback(() => {
+    setShowImage(true);
+  }, []);
 
-      <div>
+  return (
+    <Container>
+      <ImageContainer>
+        <ProfileImage
+          showImage={showImage}
+          onLoad={handleImageLoaded}
+          src="https://github.com/mattz6.png"
+          alt="Matheus Felipe Zanin"
+        />
+      </ImageContainer>
+
+
+      <ProfileData>
         <strong>Matheus Felipe Zanin</strong>
+
         <span>
           <img src="icons/level.svg" alt="Level" />
           Level {level}
         </span>
-      </div>
-    </div>
+      </ProfileData>
+    </Container>
   );
 }
