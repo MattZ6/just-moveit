@@ -10,24 +10,14 @@ export const ImageContainer = styled.div`
   height: 5.5rem;
   border-radius: calc(5.5rem / 2);
   background: ${({ theme }) => theme.dividerColor};
-  background-image: url('icons/user-placeholder.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   overflow: hidden;
 `;
 
-interface IProfileImageProps {
-  showImage: boolean;
-}
-
-export const ProfileImage = styled.img<IProfileImageProps>`
+export const ProfileImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 250ms ease-out;
-  opacity: ${props => !!props.showImage ? 1 : 0};
-  z-index: 5;
 `;
 
 export const ProfileData = styled.div`

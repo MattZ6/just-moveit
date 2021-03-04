@@ -1,15 +1,13 @@
 import { ThemeProvider } from '../contexts/ThemeContext';
 
-interface IProps {
-  Component: any;
-  pageProps: any;
-  isDarkTheme: boolean;
-}
+import Main from '../templates/Main';
 
-function App({ Component, pageProps }: IProps) {
+function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
-      <Component {...pageProps} />
+      <Main>
+        <Component {...pageProps} />
+      </Main>
     </ThemeProvider>
   );
 }

@@ -4,11 +4,11 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
 
+  margin-top: 2.5rem;
+
   > span {
     font-size: 1rem;
   }
-
-
 `;
 
 export const Progress = styled.div`
