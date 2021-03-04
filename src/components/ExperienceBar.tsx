@@ -1,8 +1,8 @@
 import { useContext, useMemo } from 'react';
 
-import { ChallengesContext } from '../../contexts/ChallengesContext';
+import { ChallengesContext } from '../contexts/ChallengesContext';
 
-import { Container, Progress, CurrentProgress, CurrentProgressIndicator } from './styles';
+import { Container, Progress, CurrentProgress, CurrentProgressIndicator } from '../styles/components/ExperienceBar';
 
 export function ExperienceBar() {
   const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);

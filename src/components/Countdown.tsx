@@ -1,8 +1,8 @@
 import { useContext,  useMemo } from 'react';
 
-import { CountdownContext } from '../../contexts/CountdownContext';
+import { CountdownContext } from '../contexts/CountdownContext';
 
-import { Container, CountdownButton } from './styles';
+import { Container, CountdownButton } from '../styles/components/Countdown';
 
 export function Countdown() {
   const {

@@ -1,4 +1,4 @@
-import { Container } from './styles';
+import { Container } from '../styles/pages/Ranking';
 
 const Ranking: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const Ranking: React.FC = () => {
           </div>
           <div>
             <span>
-              <b>1600</b>xp
+              <b>1600</b> xp
             </span>
           </div>
         </li>

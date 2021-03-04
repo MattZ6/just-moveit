@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import Switch from 'react-switch';
 import { FiHome, FiAward } from 'react-icons/fi';
 
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 
-import { Container, SideBar, LinkButton, Content, Footer, SwitchIconContainer } from './styles';
+import { Container, SideBar, LinkButton, Content, Footer, SwitchIconContainer } from '../styles/layouts/Main';
 
 const Main: React.FC = ({ children }) => {
   const router = useRouter();
@@ -16,13 +16,13 @@ const Main: React.FC = ({ children }) => {
     <Container>
       <SideBar>
         <Link href="/">
-          <LinkButton isActive={router.route === '/'}>
+          <LinkButton isActive={router.route === '/'} tabIndex={0}>
             <FiHome size={24} color={router.route === '/' ? theme.primaryColor : theme.text} />
           </LinkButton>
         </Link>
 
         <Link href="/ranking">
-          <LinkButton isActive={router.route === '/ranking'}>
+          <LinkButton isActive={router.route === '/ranking'} tabIndex={0}>
             <FiAward size={24} color={router.route === '/ranking' ? theme.primaryColor : theme.text} />
           </LinkButton>
         </Link>

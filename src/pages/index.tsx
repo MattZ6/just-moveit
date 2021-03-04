@@ -10,7 +10,7 @@ import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
 import { ChallengeBox } from '../components/ChallengeBox';
 
-import { Container } from './styles';
+import { Container } from '../styles/pages/Home';
 
 interface IHomeProps {
   level: number;

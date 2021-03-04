@@ -1,6 +1,6 @@
 import { ThemeProvider } from '../contexts/ThemeContext';
 
-import Main from '../templates/Main';
+import Main from '../layouts/Main';
 
 function App({ Component, pageProps }) {
   return (
