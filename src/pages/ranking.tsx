@@ -1,8 +1,15 @@
+import SEO from '@components/SEO';
+
 import { Container } from '@styles/pages/Ranking';
 
 const Ranking: React.FC = () => {
   return (
     <Container>
+      <SEO
+        title="Ranking"
+        description="🏆 Os melhores dos melhores... que rufem os tambores! 🥁"
+      />
+
       <h1>Leaderboard</h1>
 
       <ul>
