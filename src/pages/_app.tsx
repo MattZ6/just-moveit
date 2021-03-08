@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 
-import Main from '../layouts/Main';
+import Main from '@layouts/Main';
 
 function App({ Component, pageProps }: AppProps) {
   return (

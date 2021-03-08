@@ -1,10 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  /* :root {
-    --blue-twitter: #2aa9e0;
-  } */
-
   @media (max-width: 1080px) {
     html {
       font-size: 93.75%;

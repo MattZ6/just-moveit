@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { FiHome, FiAward } from 'react-icons/fi';
 
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext } from '@contexts/ThemeContext';
 
-import { Container, LinkButton } from '../../styles/layouts/components/SideBar';
+import { Container, LinkButton } from '@styles/layouts/components/SideBar';
 
 const SideBar: React.FC = () => {
   const router = useRouter();

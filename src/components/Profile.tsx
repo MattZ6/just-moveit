@@ -1,12 +1,11 @@
-import { useCallback, useContext, useState } from 'react';
+import { useContext } from 'react';
 
-import { ChallengesContext } from '../contexts/ChallengesContext';
+import { ChallengesContext } from '@contexts/ChallengesContext';
 
-import { Container, ImageContainer, ProfileImage, ProfileData } from '../styles/components/Profile';
+import { Container, ImageContainer, ProfileImage, ProfileData } from '@styles/components/Profile';
 
 export function Profile () {
   const { level } = useContext(ChallengesContext);
-
 
   return (
     <Container>

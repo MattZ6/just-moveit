@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import Switch from 'react-switch';
 
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext } from '@contexts/ThemeContext';
 
-import { Container, SwitchIconContainer } from '../../styles/layouts/components/Footer';
+import { Container, SwitchIconContainer } from '@styles/layouts/components/Footer';
 
 const Footer: React.FC = () => {
   const { toggleTheme, theme } = useContext(ThemeContext);

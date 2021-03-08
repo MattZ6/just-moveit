@@ -1,4 +1,4 @@
-import { Container } from '../styles/pages/Ranking';
+import { Container } from '@styles/pages/Ranking';
 
 const Ranking: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
 
-import { ChallengesContext } from '../contexts/ChallengesContext';
-import { CountdownContext } from '../contexts/CountdownContext';
+import { ChallengesContext } from '@contexts/ChallengesContext';
+import { CountdownContext } from '@contexts/CountdownContext';
 
 import { Container, ActiveChallengeContainer, InactiveChallengeContainer, ActionButton } from '../styles/components/ChallengeBox';
 

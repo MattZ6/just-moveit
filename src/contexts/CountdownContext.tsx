@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import { ChallengesContext } from './ChallengesContext';
+import { ChallengesContext } from '@contexts/ChallengesContext';
 
 let countdownTimeout: NodeJS.Timeout;
 

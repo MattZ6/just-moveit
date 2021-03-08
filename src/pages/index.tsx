@@ -1,16 +1,16 @@
 import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 
-import { ChallengesProvider } from '../contexts/ChallengesContext';
-import { CountdownProvider } from '../contexts/CountdownContext';
+import { ChallengesProvider } from '@contexts/ChallengesContext';
+import { CountdownProvider } from '@contexts/CountdownContext';
 
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ChallengeBox } from '../components/ChallengeBox';
+import { ExperienceBar } from '@components/ExperienceBar';
+import { Profile } from '@components/Profile';
+import { CompletedChallenges } from '@components/CompletedChallenges';
+import { Countdown } from '@components/Countdown';
+import { ChallengeBox } from '@components/ChallengeBox';
 
-import { Container } from '../styles/pages/Home';
+import { Container } from '@styles/pages/Home';
 
 interface IHomeProps {
   level: number;
