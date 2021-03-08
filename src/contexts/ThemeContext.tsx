@@ -17,13 +17,13 @@ interface IThemeContextData {
 
 export const ThemeContext = createContext({} as IThemeContextData);
 
-const IS_DARK_THEME_KEY = 'IS_DARK_THEME';
+export const IS_DARK_THEME_KEY = 'IS_DARK_THEME';
 
 export const ThemeProvider: React.FC = ({ children }) => {
   const [isDark, setIsDark] = useState<boolean>();
 
   const theme = useMemo(() => {
-    return isDark ? light : dark;
+    return isDark ? dark : light;
   }, [isDark]);
 
   const toggleTheme = useCallback(() => {
@@ -31,13 +31,22 @@ export const ThemeProvider: React.FC = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (isDark === undefined) {
-      setIsDark(!!Cookies.get(IS_DARK_THEME_KEY));
+    function saveThemeCookie() {
+      if (isDark === undefined) {
+        const data = Cookies.get(IS_DARK_THEME_KEY);
 
-      return;
+        if (!data) {
+          setIsDark(false);
+        } else {
+          setIsDark(data === 'true');
+        }
+
+      } else {
+        Cookies.set(IS_DARK_THEME_KEY, String(isDark));
+      }
     }
 
-    Cookies.set(IS_DARK_THEME_KEY, String(isDark));
+    saveThemeCookie();
   }, [isDark]);
 
   return (

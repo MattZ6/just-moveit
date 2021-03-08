@@ -1,55 +1,27 @@
-import React, { useContext } from 'react';
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import Switch from 'react-switch';
-import { FiHome, FiAward } from 'react-icons/fi';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
-import { ThemeContext } from '../contexts/ThemeContext';
+import SideBar from './components/SideBar';
+import Footer from './components/Footer';
 
-import { Container, SideBar, LinkButton, Content, Footer, SwitchIconContainer } from '../styles/layouts/Main';
+import { Container,  Content } from '../styles/layouts/Main';
 
 const Main: React.FC = ({ children }) => {
-  const router = useRouter();
-  const { toggleTheme, theme } = useContext(ThemeContext);
-
   return (
-    <Container>
-      <SideBar>
-        <Link href="/">
-          <LinkButton isActive={router.route === '/'} tabIndex={0}>
-            <FiHome size={24} color={router.route === '/' ? theme.primaryColor : theme.text} />
-          </LinkButton>
-        </Link>
+    <ThemeProvider>
+      <Container>
+        <SideBar />
 
-        <Link href="/ranking">
-          <LinkButton isActive={router.route === '/ranking'} tabIndex={0}>
-            <FiAward size={24} color={router.route === '/ranking' ? theme.primaryColor : theme.text} />
-          </LinkButton>
-        </Link>
-      </SideBar>
+        <Content>
+          <div>
+            <section>
+              { children }
+            </section>
 
-      <Content>
-        <div>
-          <section>
-            { children }
-          </section>
-
-          <Footer>
-            <Switch
-              checked={theme.title === 'dark'}
-              onChange={toggleTheme}
-              onColor={theme.dividerColor}
-              offColor={theme.dividerColor}
-              checkedIcon={null}
-              uncheckedIcon={null}
-              height={24}
-              uncheckedHandleIcon={<SwitchIconContainer>🌞</SwitchIconContainer>}
-              checkedHandleIcon={<SwitchIconContainer>🌛</SwitchIconContainer>}
-              />
-          </Footer>
-        </div>
-      </Content>
-    </Container>
+            <Footer />
+          </div>
+        </Content>
+      </Container>
+    </ThemeProvider>
   );
 }
 

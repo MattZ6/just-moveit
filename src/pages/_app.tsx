@@ -1,14 +1,12 @@
-import { ThemeProvider } from '../contexts/ThemeContext';
+import type { AppProps } from 'next/app'
 
 import Main from '../layouts/Main';
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <Main>
-        <Component {...pageProps} />
-      </Main>
-    </ThemeProvider>
+    <Main>
+      <Component {...pageProps} />
+    </Main>
   );
 }
 
