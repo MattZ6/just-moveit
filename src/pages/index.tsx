@@ -10,7 +10,7 @@ import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
 import { ChallengeBox } from '../components/ChallengeBox';
 
-import styles from '../styles/pages/Home.module.css';
+import { Container } from '../styles/pages/Home';
 
 interface IHomeProps {
   level: number;
@@ -33,8 +33,8 @@ const Home: React.FC<IHomeProps> = ({
         <title>Início | move.it</title>
       </Head>
 
-      <div className={styles.container}>
-        <ExperienceBar/>
+      <Container>
+        <ExperienceBar />
 
         <CountdownProvider>
           <section>
@@ -49,7 +49,7 @@ const Home: React.FC<IHomeProps> = ({
             </div>
           </section>
         </CountdownProvider>
-      </div>
+      </Container>
     </ChallengesProvider>
   );
 }
@@ -59,9 +59,9 @@ export const getServerSideProps: GetServerSideProps<IHomeProps> = async (context
 
   return {
     props: {
-      level: Number(moveit_level),
-      currentExperience: Number(moveit_currentExperience),
-      completedChallenges: Number(moveit_completedChallenges),
+      level: Number(moveit_level ?? 0),
+      currentExperience: Number(moveit_currentExperience ?? 0),
+      completedChallenges: Number(moveit_completedChallenges ?? 0),
     },
   }
 }

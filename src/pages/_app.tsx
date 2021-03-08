@@ -1,7 +1,13 @@
-import '../styles/global.css'
+import type { AppProps } from 'next/app'
 
-function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import Main from '../layouts/Main';
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <Main>
+      <Component {...pageProps} />
+    </Main>
+  );
 }
 
 export default App;

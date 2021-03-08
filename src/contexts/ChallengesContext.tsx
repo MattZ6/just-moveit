@@ -102,7 +102,7 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
       experienceToNextLvl = getExperienceToNextLevel(levelsToUp);
     }
 
-    if (levelsToUp != level) {
+    if (levelsToUp !== level) {
       setLevel(levelsToUp);
       setIsLevelUpModalOpen(true);
     }
@@ -130,9 +130,9 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
         closeLevelUpModal,
       }}
     >
-      { children }
+      { children}
 
-      { isLevelUpModalOpen && <LevelUpModal /> }
+      { isLevelUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
   );
 }
