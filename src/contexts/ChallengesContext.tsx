@@ -45,7 +45,15 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
 
   useEffect(() => {
-    Notification.requestPermission();
+    function requestNotificationPermission() {
+      if (!('Notification' in window)) {
+        return
+      }
+
+      Notification.requestPermission();
+    }
+
+    requestNotificationPermission();
   }, []);
 
   useEffect(() => {
@@ -67,6 +75,10 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
     const challenge = challenges[randomChallengeIndex];
 
     setActiveChallenge(challenge as IChallenge);
+
+    if (!('Notification' in window)) {
+      return
+    }
 
     if (Notification.permission === 'granted') {
       new Audio('/notification.mp3').play();
