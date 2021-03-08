@@ -10,6 +10,12 @@ export default class AppDocument extends Document {
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
+
+          <link rel="manifest" href="manifest.json" />
+          <meta name="theme-color" content="#5965e0" />
+
+          <link rel="apple-touch-icon" href="logo-72-72.png" />
+          <meta name="apple-mobile-web-app-status-bar" content="#5965e0" />
         </Head>
 
         <body>

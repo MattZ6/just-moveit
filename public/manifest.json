@@ -1,0 +1,16 @@
+{
+  "name": "Just MoveIt!",
+  "short_name": "Just MoveIt!",
+  "theme_color": "#5965e0",
+  "background_color": "#313662",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/logo-72-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    }
+  ]
+}
