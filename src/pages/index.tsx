@@ -30,8 +30,8 @@ const Home: React.FC<IHomeProps> = ({
       completedChallenges={completedChallenges}
     >
       <SEO
-        title="Início"
-        description="Bora se mexer!"
+        title="Bora completar uns desafios?"
+        description="Finalize um ciclo para receber desafios e evoluir cada vez mais! 🚀"
         image="favicon.png"
       />
 

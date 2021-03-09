@@ -8,9 +8,10 @@ const Ranking: React.FC = () => {
       <SEO
         title="Ranking"
         description="🏆 Os melhores dos melhores... que rufem os tambores! 🥁"
+        image="favicon.png"
       />
 
-      <h1>Leaderboard</h1>
+      <h1>🏆 Ranking</h1>
 
       <ul>
         <header>

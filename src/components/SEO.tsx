@@ -20,7 +20,7 @@ const SEO: React.FC<IProps> = ({
 }) => {
   const { theme  } = useContext(ThemeContext);
 
-  const pageTitle = `${title.trim()} ${!shouldExcludeTitleSuffix ? ' | Just move it!' : ''}`;
+  const pageTitle = `${title.trim()} ${!shouldExcludeTitleSuffix ? " – Just move it!" : ''}`;
   const pageImage = image ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}` : null;
 
   return (
