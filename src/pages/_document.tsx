@@ -5,7 +5,8 @@ export default class AppDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
+        <Head lang="pt">
+          <meta charSet="utf-8" />
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
