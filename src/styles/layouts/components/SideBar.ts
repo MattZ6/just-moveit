@@ -7,9 +7,16 @@ export const Container = styled.aside`
   justify-content: center;
   flex-shrink: 0;
 
-  width: 112px;
+  width: 7rem;
   height: 100%;
   background: ${({ theme }) => theme.white};
+
+  @media (max-width: 680px) {
+    flex-direction: row;
+
+    width: 100%;
+    height: 3.5rem;
+  }
 `;
 
 interface ILinkButtonProps {
@@ -51,4 +58,29 @@ export const LinkButton = styled.a<ILinkButtonProps>`
       background: ${({ theme }) => theme.primaryColor};
     }
   `}
+
+  @media (max-width: 680px) {
+    &:focus,
+    &:hover {
+      background: transparent;
+    }
+
+    &:active {
+      background: ${({ theme }) => theme.dividerColor};
+    }
+
+    ${({ isActive }) => isActive && css`
+      background: none;
+
+      &:after {
+        content: "";
+        width: 100%;
+        height: 0.2rem;
+        position: absolute;
+
+        bottom: 0;
+        border-radius: 0;
+      }
+    `}
+  }
 `;

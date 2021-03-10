@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   border-radius: 5px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 2rem;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -44,6 +44,12 @@ export const InactiveChallengeContainer = styled.div`
       width: 2rem;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: flex-start;
+    text-align: start;
+  }
 `;
 
 export const ActiveChallengeContainer = styled.div`
@@ -67,12 +73,20 @@ export const ActiveChallengeContainer = styled.div`
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 768px) {
+     padding: 1rem 0;
+    }
+
     > header {
       display: flex;
       align-items: center;
       justify-content: center;
 
       height: 112px;
+
+      @media (max-width: 768px) {
+        text-align: start;
+      }
     }
 
     > strong {
