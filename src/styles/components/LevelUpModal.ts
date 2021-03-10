@@ -10,7 +10,7 @@ const animateOpacity = keyframes`
   `;
 
 export const Overlay = styled.div`
-  background: ${({ theme })=> theme.modalOverlay};
+  background: ${({ theme }) => theme.modalOverlay};
   position: fixed;
   top: 0;
   right: 0;
@@ -43,7 +43,8 @@ export const Dialog = styled.div`
   text-align: center;
   position: relative;
 
-  animation: ${animateOpacity} 300ms ease-out, ${animateFromBottom} 300ms ease-out;
+  animation: ${animateOpacity} 300ms ease-out,
+    ${animateFromBottom} 300ms ease-out;
 
   > header {
     font-size: 8.75rem;

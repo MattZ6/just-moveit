@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 import { ChallengesContext } from '@contexts/ChallengesContext';
 
 import { Overlay, Dialog } from '@styles/components/LevelUpModal';
 
-const LevelUpModal: React.FC = () => {
+const LevelUpModal: FC = () => {
   const { level, closeLevelUpModal } = useContext(ChallengesContext);
 
   return (
@@ -16,11 +16,11 @@ const LevelUpModal: React.FC = () => {
         <p>Você alcançou um novo level.</p>
 
         <button type="button" onClick={closeLevelUpModal}>
-          <img src="/icons/close.svg" alt="Fechar"/>
+          <img src="/icons/close.svg" alt="Fechar" />
         </button>
       </Dialog>
     </Overlay>
   );
-}
+};
 
 export default LevelUpModal;

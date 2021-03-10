@@ -1,10 +1,15 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 import { ChallengesContext } from '@contexts/ChallengesContext';
 
-import { Container, ImageContainer, ProfileImage, ProfileData } from '@styles/components/Profile';
+import {
+  Container,
+  ImageContainer,
+  ProfileImage,
+  ProfileData,
+} from '@styles/components/Profile';
 
-export function Profile () {
+export const Profile: FC = () => {
   const { level } = useContext(ChallengesContext);
 
   return (
@@ -16,7 +21,6 @@ export function Profile () {
         />
       </ImageContainer>
 
-
       <ProfileData>
         <strong>Matheus Felipe Zanin</strong>
 
@@ -27,4 +31,4 @@ export function Profile () {
       </ProfileData>
     </Container>
   );
-}
+};

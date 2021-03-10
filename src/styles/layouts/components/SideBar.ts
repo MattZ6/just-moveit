@@ -35,20 +35,22 @@ export const LinkButton = styled.a<ILinkButtonProps>`
     background: ${({ theme }) => theme.dividerColor};
   }
 
-  ${({ isActive }) => isActive && css`
-    background: ${({ theme }) => theme.dividerColor};
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background: ${({ theme }) => theme.dividerColor};
 
-    &:after {
-      content: "";
-      width: 4px;
-      height: 90%;
-      position: absolute;
+      &:after {
+        content: '';
+        width: 4px;
+        height: 90%;
+        position: absolute;
 
-      left: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
+        left: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
 
-      background: ${({ theme }) => theme.primaryColor};
-    }
-  `}
+        background: ${({ theme }) => theme.primaryColor};
+      }
+    `}
 `;

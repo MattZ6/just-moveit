@@ -1,9 +1,15 @@
-import { createContext, useState, useEffect, useCallback, useMemo } from 'react';
+import {
+  FC,
+  createContext,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react';
 import Cookies from 'js-cookie';
 
-import challenges from '../../challenges.json';
-
 import LevelUpModal from '@components/LevelUpModal';
+import challenges from '../../challenges.json';
 
 interface IChallenge {
   type: 'body' | 'eye';
@@ -25,20 +31,23 @@ interface IChallengesContextData {
 
 export const ChallengesContext = createContext({} as IChallengesContextData);
 
-
 interface IChallengesProviderProps {
   level: number;
   currentExperience: number;
   completedChallenges: number;
 }
 
-export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
+export const ChallengesProvider: FC<IChallengesProviderProps> = ({
   children,
   ...rest
 }) => {
   const [level, setLevel] = useState(rest?.level ?? 0);
-  const [currentExperience, setCurrentExperience] = useState(rest?.currentExperience ?? 0);
-  const [completedChallenges, setCompletedChallenges] = useState(rest?.completedChallenges ?? 0);
+  const [currentExperience, setCurrentExperience] = useState(
+    rest?.currentExperience ?? 0
+  );
+  const [completedChallenges, setCompletedChallenges] = useState(
+    rest?.completedChallenges ?? 0
+  );
 
   const [activeChallenge, setActiveChallenge] = useState<IChallenge>(null);
 
@@ -46,8 +55,8 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
 
   useEffect(() => {
     function requestNotificationPermission() {
-      if (!('Notification' in window)) {
-        return
+      if (!window.Notification) {
+        return;
       }
 
       Notification.requestPermission();
@@ -60,14 +69,15 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
     Cookies.set('moveit_level', String(level));
     Cookies.set('moveit_currentExperience', String(currentExperience));
     Cookies.set('moveit_completedChallenges', String(completedChallenges));
-
   }, [level, currentExperience, completedChallenges]);
 
   function getExperienceToNextLevel(level: number) {
     return Math.pow((level + 1) * 4, 2);
   }
 
-  const experienceToNextLevel = useMemo(() => getExperienceToNextLevel(level), [level]);
+  const experienceToNextLevel = useMemo(() => getExperienceToNextLevel(level), [
+    level,
+  ]);
 
   const startNewChallenge = useCallback(() => {
     const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
@@ -76,11 +86,7 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
 
     setActiveChallenge(challenge as IChallenge);
 
-    if (!('Notification' in window)) {
-      return
-    }
-
-    if (Notification.permission === 'granted') {
+    if (window.Notification && Notification.permission === 'granted') {
       new Audio('/notification.mp3').play();
 
       new Notification('Novo desafio disponível 🎉', {
@@ -108,7 +114,7 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
     let experienceToNextLvl = getExperienceToNextLevel(levelsToUp);
 
     while (finalExperience >= experienceToNextLvl) {
-      finalExperience = finalExperience - experienceToNextLvl;
+      finalExperience -= experienceToNextLvl;
 
       levelsToUp += 1;
       experienceToNextLvl = getExperienceToNextLevel(levelsToUp);
@@ -142,9 +148,9 @@ export const ChallengesProvider: React.FC<IChallengesProviderProps> = ({
         closeLevelUpModal,
       }}
     >
-      { children}
+      {children}
 
-      { isLevelUpModalOpen && <LevelUpModal />}
+      {isLevelUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
   );
-}
+};

@@ -54,10 +54,14 @@ const Home: React.FC<IHomeProps> = ({
       </Container>
     </ChallengesProvider>
   );
-}
+};
 
-export const getServerSideProps: GetServerSideProps<IHomeProps> = async (context) => {
-  const { moveit_level, moveit_currentExperience, moveit_completedChallenges } = context.req.cookies;
+export const getServerSideProps: GetServerSideProps<IHomeProps> = async context => {
+  const {
+    moveit_level,
+    moveit_currentExperience,
+    moveit_completedChallenges,
+  } = context.req.cookies;
 
   return {
     props: {
@@ -65,7 +69,7 @@ export const getServerSideProps: GetServerSideProps<IHomeProps> = async (context
       currentExperience: Number(moveit_currentExperience ?? 0),
       completedChallenges: Number(moveit_completedChallenges ?? 0),
     },
-  }
-}
+  };
+};
 
 export default Home;

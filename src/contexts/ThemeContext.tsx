@@ -1,8 +1,15 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  FC,
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   ThemeProvider as StyleComponentsThemeProvider,
   DefaultTheme,
-} from 'styled-components'
+} from 'styled-components';
 import Cookies from 'js-cookie';
 
 import GlobalStyle from '@styles/GlobalStyle';
@@ -19,7 +26,7 @@ export const ThemeContext = createContext({} as IThemeContextData);
 
 export const IS_DARK_THEME_KEY = 'IS_DARK_THEME';
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: FC = ({ children }) => {
   const [isDark, setIsDark] = useState<boolean>();
 
   const theme = useMemo(() => {
@@ -40,7 +47,6 @@ export const ThemeProvider: React.FC = ({ children }) => {
         } else {
           setIsDark(data === 'true');
         }
-
       } else {
         Cookies.set(IS_DARK_THEME_KEY, String(isDark));
       }
@@ -58,4 +64,4 @@ export const ThemeProvider: React.FC = ({ children }) => {
       </StyleComponentsThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};

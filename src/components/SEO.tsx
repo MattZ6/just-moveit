@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 import { ThemeContext } from '@contexts/ThemeContext';
 
@@ -11,27 +11,31 @@ interface IProps {
   shouldIndexPage?: boolean;
 }
 
-const SEO: React.FC<IProps> = ({
+const SEO: FC<IProps> = ({
   title,
   description,
   image,
   shouldExcludeTitleSuffix = false,
   shouldIndexPage = true,
 }) => {
-  const { theme  } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
-  const pageTitle = `${title.trim()} ${!shouldExcludeTitleSuffix ? " – Just move it!" : ''}`;
-  const pageImage = image ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}` : null;
+  const pageTitle = `${title.trim()} ${
+    !shouldExcludeTitleSuffix ? ' – Just move it!' : ''
+  }`;
+  const pageImage = image
+    ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}`
+    : null;
 
   return (
     <Head>
       <title>{pageTitle}</title>
 
-      { description && <meta name="description" content={description} /> }
+      {description && <meta name="description" content={description} />}
 
-      { pageImage && <meta name="image" content={pageImage} /> }
+      {pageImage && <meta name="image" content={pageImage} />}
 
-      { !shouldIndexPage && <meta name="robots" content="noindex,nofollow" /> }
+      {!shouldIndexPage && <meta name="robots" content="noindex,nofollow" />}
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
@@ -64,6 +68,6 @@ const SEO: React.FC<IProps> = ({
       <meta name="twitter:image:height" content="620" />
     </Head>
   );
-}
+};
 
 export default SEO;

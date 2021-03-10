@@ -46,7 +46,7 @@ const Ranking: React.FC = () => {
         </li>
       </ul>
     </Container>
-  )
-}
+  );
+};
 
 export default Ranking;
