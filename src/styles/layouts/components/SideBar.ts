@@ -9,13 +9,15 @@ export const Container = styled.aside`
 
   width: 7rem;
   height: 100%;
-  background: ${({ theme }) => theme.white};
+  background: linear-gradient(${({ theme }) => theme.white}, transparent);
 
   @media (max-width: 680px) {
     flex-direction: row;
 
     width: 100%;
     height: 3.5rem;
+
+    background: ${({ theme }) => theme.white};
   }
 `;
 
@@ -42,22 +44,24 @@ export const LinkButton = styled.a<ILinkButtonProps>`
     background: ${({ theme }) => theme.dividerColor};
   }
 
-  ${({ isActive }) => isActive && css`
-    background: ${({ theme }) => theme.dividerColor};
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background: ${({ theme }) => theme.dividerColor};
 
-    &:after {
-      content: "";
-      width: 4px;
-      height: 90%;
-      position: absolute;
+      &:after {
+        content: '';
+        width: 4px;
+        height: 90%;
+        position: absolute;
 
-      left: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
+        left: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
 
-      background: ${({ theme }) => theme.primaryColor};
-    }
-  `}
+        background: ${({ theme }) => theme.primaryColor};
+      }
+    `}
 
   @media (max-width: 680px) {
     &:focus,
@@ -69,18 +73,20 @@ export const LinkButton = styled.a<ILinkButtonProps>`
       background: ${({ theme }) => theme.dividerColor};
     }
 
-    ${({ isActive }) => isActive && css`
-      background: none;
+    ${({ isActive }) =>
+      isActive &&
+      css`
+        background: none;
 
-      &:after {
-        content: "";
-        width: 100%;
-        height: 0.2rem;
-        position: absolute;
+        &:after {
+          content: '';
+          width: 100%;
+          height: 0.2rem;
+          position: absolute;
 
-        bottom: 0;
-        border-radius: 0;
-      }
-    `}
+          bottom: 0;
+          border-radius: 0;
+        }
+      `}
   }
 `;

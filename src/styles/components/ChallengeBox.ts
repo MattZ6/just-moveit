@@ -74,7 +74,7 @@ export const ActiveChallengeContainer = styled.div`
     justify-content: center;
 
     @media (max-width: 768px) {
-     padding: 1rem 0;
+      padding: 1rem 0;
     }
 
     > header {

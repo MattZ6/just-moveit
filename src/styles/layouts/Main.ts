@@ -5,7 +5,6 @@ export const Container = styled.div`
 
   height: 100vh;
 
-
   @media (max-width: 680px) {
     flex-direction: column-reverse;
   }
