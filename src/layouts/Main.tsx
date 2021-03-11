@@ -1,11 +1,13 @@
+import { FC } from 'react';
+
 import { ThemeProvider } from '../contexts/ThemeContext';
 
 import SideBar from './components/SideBar';
 import Footer from './components/Footer';
 
-import { Container,  Content } from '../styles/layouts/Main';
+import { Container, Content } from '../styles/layouts/Main';
 
-const Main: React.FC = ({ children }) => {
+const Main: FC = ({ children }) => {
   return (
     <ThemeProvider>
       <Container>
@@ -13,9 +15,7 @@ const Main: React.FC = ({ children }) => {
 
         <Content>
           <div>
-            <section>
-              { children }
-            </section>
+            <section>{children}</section>
 
             <Footer />
           </div>
@@ -23,6 +23,6 @@ const Main: React.FC = ({ children }) => {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default Main;

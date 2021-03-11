@@ -134,11 +134,15 @@ export const ActionButton = styled.button<IActionButtonProps>`
     filter: brightness(0.9);
   }
 
-  ${({ actionType }) => actionType === 'warn' && css`
-    background: ${({ theme }) => theme.warn};
-  `}
+  ${({ actionType }) =>
+    actionType === 'warn' &&
+    css`
+      background: ${({ theme }) => theme.warn};
+    `}
 
-  ${({ actionType }) => actionType === 'success' && css`
-    background: ${({ theme }) => theme.success};
-  `}
+  ${({ actionType }) =>
+    actionType === 'success' &&
+    css`
+      background: ${({ theme }) => theme.success};
+    `}
 `;

@@ -1,10 +1,10 @@
-import { useContext,  useMemo } from 'react';
+import { FC, useContext, useMemo } from 'react';
 
 import { CountdownContext } from '@contexts/CountdownContext';
 
 import { Container, CountdownButton } from '@styles/components/Countdown';
 
-export function Countdown() {
+export const Countdown: FC = () => {
   const {
     minutes,
     seconds,
@@ -12,23 +12,22 @@ export function Countdown() {
     isCountdownActive,
     resetCountdown,
     startCountdown,
-  } = useContext(CountdownContext)
+  } = useContext(CountdownContext);
 
-  const {
-    minuteLeft,
-    minuteRight,
-    secondLeft,
-    secondRight,
-  } = useMemo(() => {
-    const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
-    const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
+  const { minuteLeft, minuteRight, secondLeft, secondRight } = useMemo(() => {
+    const [minuteLeft, minuteRight] = String(minutes)
+      .padStart(2, '0')
+      .split('');
+    const [secondLeft, secondRight] = String(seconds)
+      .padStart(2, '0')
+      .split('');
 
     return {
       minuteLeft,
       minuteRight,
       secondLeft,
       secondRight,
-    }
+    };
   }, [minutes, seconds]);
 
   return (
@@ -47,28 +46,21 @@ export function Countdown() {
         </div>
       </Container>
 
-      {
-        hasFinished ? (
-          <CountdownButton disabled>
-            Ciclo encerrado
-          </CountdownButton>
-        ) : isCountdownActive ? (
-          <CountdownButton
-            type="button"
-            isActive
-            onClick={resetCountdown}
-          >
-            Abandonar ciclo
-          </CountdownButton>
-        ) : (
-          <CountdownButton
-            type="button"
-            onClick={startCountdown}
-          >
-            Iniciar um ciclo
-          </CountdownButton>
-        )
-      }
+      {hasFinished && !isCountdownActive && (
+        <CountdownButton disabled>Ciclo encerrado</CountdownButton>
+      )}
+
+      {!hasFinished && isCountdownActive && (
+        <CountdownButton type="button" isActive onClick={resetCountdown}>
+          Abandonar ciclo
+        </CountdownButton>
+      )}
+
+      {!hasFinished && !isCountdownActive && (
+        <CountdownButton type="button" onClick={startCountdown}>
+          Iniciar um ciclo
+        </CountdownButton>
+      )}
     </>
   );
-}
+};

@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   > span {
     font-size: 6.25rem;
-    margin: 0 0 .5rem;
+    margin: 0 0 0.5rem;
   }
 
   > div {
@@ -55,8 +55,10 @@ export const CountdownButton = styled.button<ICountdownButtonProps>`
   border: 0;
   border-radius: 5px;
 
-  background: ${({ theme, isActive }) => isActive ? theme.white : theme.primaryColor};
-  color: ${({ theme, isActive }) => isActive ? theme.primaryDarkTextHighlight : theme.white};
+  background: ${({ theme, isActive }) =>
+    isActive ? theme.white : theme.primaryColor};
+  color: ${({ theme, isActive }) =>
+    isActive ? theme.primaryDarkTextHighlight : theme.white};
 
   font-size: 1.25rem;
   font-weight: 600;
@@ -65,17 +67,20 @@ export const CountdownButton = styled.button<ICountdownButtonProps>`
 
   &:disabled {
     background: ${({ theme }) => theme.white};
-    color:  ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.text};
     cursor: not-allowed;
     border-bottom: 5px solid ${({ theme }) => theme.success};
   }
 
   &:not(:disabled):focus,
   &:not(:disabled):hover {
-    background: ${({ theme, isActive }) => isActive ? theme.warn : theme.primaryDark};
+    background: ${({ theme, isActive }) =>
+      isActive ? theme.warn : theme.primaryDark};
 
-    ${({ isActive }) => isActive && css`
-    color: ${({ theme }) => theme.white};
-    `}
+    ${({ isActive }) =>
+      isActive &&
+      css`
+        color: ${({ theme }) => theme.white};
+      `}
   }
 `;
