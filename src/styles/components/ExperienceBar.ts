@@ -4,10 +4,17 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
 
-  margin-top: 2.5rem;
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  background: ${({ theme }) => theme.backgroundColor};
 
   > span {
     font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 0;
   }
 `;
 
@@ -42,4 +49,8 @@ export const CurrentProgressIndicator = styled.span<ICurrentProgressIndicatorPro
   left: ${props => props.progress}%;
   transform: translateX(-50%);
   transition: all 500ms ease-out;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

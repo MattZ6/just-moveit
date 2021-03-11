@@ -11,6 +11,7 @@ export const ImageContainer = styled.div`
   border-radius: calc(5.5rem / 2);
   background: ${({ theme }) => theme.dividerColor};
   overflow: hidden;
+  flex-shrink: 0;
 `;
 
 export const ProfileImage = styled.img`

@@ -4,9 +4,14 @@ export const Container = styled.div`
   display: flex;
 
   height: 100vh;
+
+  @media (max-width: 680px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Content = styled.main`
+  flex: 1;
   width: 100%;
   overflow: auto;
 
@@ -19,6 +24,10 @@ export const Content = styled.main`
     max-width: 992px;
     margin: 0 auto;
     padding: 0 2rem;
+
+    @media (max-width: 680px) {
+      padding: 0 1rem;
+    }
 
     > section {
       flex: 1;
