@@ -29,6 +29,10 @@ export const Container = styled.div`
 
       margin-bottom: 1.5rem;
 
+      @media (max-width: 680px) {
+        display: none;
+      }
+
       > span {
         text-align: start;
         text-transform: uppercase;
@@ -75,6 +79,10 @@ export const Container = styled.div`
           height: 100%;
 
           margin-right: 0.25rem;
+
+          @media (max-width: 680px) {
+            width: 2.5rem;
+          }
         }
 
         &:nth-child(2) {
@@ -132,6 +140,10 @@ export const Container = styled.div`
               font-weight: 400;
               color: ${({ theme }) => theme.primaryColor};
             }
+          }
+
+          @media (max-width: 680px) {
+            display: none;
           }
         }
       }
