@@ -1,11 +1,18 @@
-import { useContext, useMemo } from 'react';
+import { FC, useContext, useMemo } from 'react';
 
 import { ChallengesContext } from '@contexts/ChallengesContext';
 
-import { Container, Progress, CurrentProgress, CurrentProgressIndicator } from '@styles/components/ExperienceBar';
+import {
+  Container,
+  Progress,
+  CurrentProgress,
+  CurrentProgressIndicator,
+} from '@styles/components/ExperienceBar';
 
-export function ExperienceBar() {
-  const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
+export const ExperienceBar: FC = () => {
+  const { currentExperience, experienceToNextLevel } = useContext(
+    ChallengesContext
+  );
 
   const percentToNextLevel = useMemo(() => {
     return Math.round(currentExperience * 100) / experienceToNextLevel;
@@ -26,4 +33,4 @@ export function ExperienceBar() {
       <span>{experienceToNextLevel}xp</span>
     </Container>
   );
-}
+};

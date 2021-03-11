@@ -1,11 +1,14 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import Switch from 'react-switch';
 
 import { ThemeContext } from '@contexts/ThemeContext';
 
-import { Container, SwitchIconContainer } from '@styles/layouts/components/Footer';
+import {
+  Container,
+  SwitchIconContainer,
+} from '@styles/layouts/components/Footer';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   const { toggleTheme, theme } = useContext(ThemeContext);
 
   return (
@@ -20,9 +23,9 @@ const Footer: React.FC = () => {
         height={24}
         uncheckedHandleIcon={<SwitchIconContainer>🌞</SwitchIconContainer>}
         checkedHandleIcon={<SwitchIconContainer>🌛</SwitchIconContainer>}
-        />
+      />
     </Container>
   );
-}
+};
 
 export default Footer;
